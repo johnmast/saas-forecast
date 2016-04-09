@@ -32,6 +32,8 @@ gem 'pg', '~> 0.18.2'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'rails_12factor', group: :p
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
