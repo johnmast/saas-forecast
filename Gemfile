@@ -23,6 +23,13 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#Devise gem
+gem 'devise'
+
+#Print ruby objects with color and indentation
+gem 'awesome_print'
+
+#pg gem
 gem 'pg', '~> 0.18.2'
 #gem 'mysql2'
 
