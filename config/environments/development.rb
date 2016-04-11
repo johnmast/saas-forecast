@@ -40,6 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   
   #Configuration for Devise
-  config.action_mailer.default_url_options = { host: 'saas-forecast-johnmast.c9users.io:8080' }
+  config.action_mailer.default_url_options = { host: 'saas-forecast-johnmast.c9users.io' }
+  #config.action_mailer.default_url_options = { :host => 'saas-forecast-johnmast.c9users.io:5000' }
   
 end

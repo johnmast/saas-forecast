@@ -41,6 +41,18 @@ gem 'pg', '~> 0.18.2'
 
 gem 'rails_12factor', group: :p
 
+#Sidekiq for background processing
+gem 'sidekiq'
+
+#For sending email in the background
+gem 'devise-async'
+
+#Web Server
+gem 'puma'
+
+#Something about Procfile
+gem 'foreman'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

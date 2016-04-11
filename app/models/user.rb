@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #:confirmable tells the users that need to confirm his email before login
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :async
   
   validate :email_is_unique, on: :create      
   after_create :create_account

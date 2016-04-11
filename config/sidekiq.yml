@@ -1,0 +1,7 @@
+#Config file for sidekiq
+#concurrency is number of process
+#Config file for siedkiq
+:concurrency: 5
+:queues:
+ - [mailer, 5]
+ - [default, 5]
