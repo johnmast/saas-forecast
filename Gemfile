@@ -53,6 +53,12 @@ gem 'puma'
 #Something about Procfile
 gem 'foreman'
 
+#Bootstrap for SaaS
+gem 'bootstrap-sass', '~> 3.3.6'
+
+#Simple_form
+gem 'simple_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
