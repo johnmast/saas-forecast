@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   after_create :create_account
   
   #Disable user confirmation via email after sing up       
-  def confirmation_required?
-    false
-  end
+  #def confirmation_required?
+    #false
+  #end
   
   private
   
