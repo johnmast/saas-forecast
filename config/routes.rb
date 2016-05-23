@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #Devise routes with custom registrations controller
   #devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
   resources :weather_grid
+  resources :subscriptions
   
   root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -59,6 +59,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 #Simple_form
 gem 'simple_form'
 
+gem 'stripe'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
