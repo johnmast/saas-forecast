@@ -72,16 +72,6 @@
 	</style>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
-  
-  <!-- <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
-  
-  <% flash.each do |type, message| %>
-    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= message %>
-    </div>
-<% end %>
 
 <%= yield %>
 
