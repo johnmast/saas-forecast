@@ -16,6 +16,9 @@
 					  <li><a href="#footer">Thanks to Forecast.io </a></li>
 				  </ul>
 				  <% if user_signed_in? %>
+				    <%= link_to subscriptions_path do %>
+				      <button class="navbar-btn btn-info">Manage Subscriptions</button>
+				    <% end %>
 				    <%= link_to(destroy_user_session_path, :method => :delete) do %>
 				      <button class="navbar-right navbar-btn btn-danger">Sign Out</button>
 				    <% end %>

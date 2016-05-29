@@ -1,0 +1,11 @@
+<p>
+  Choose your new plan:
+</p>
+<%= render :partial => "plans" %>
+
+<%= form_tag "/subscriptions" do %>
+  <%= collection_select :plan, :stripe_id, @plans, :stripe_id, :name, {}, {class: "form-control"} %>
+  <p>
+    <button type="submit" class="btn btn-primary">Update Subscription</button>
+  </p>
+<% end %>    
