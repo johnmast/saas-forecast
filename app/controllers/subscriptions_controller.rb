@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
     
     before_action :authenticate_user!
-    before_action :authorize_user
+    # before_action :authorize_user
 
     def new
         @plans = Plan.all
@@ -94,7 +94,7 @@ class SubscriptionsController < ApplicationController
 
     def cancel_subscription
         email           = current_user.email
-        current_account = Account.find_by_email(current_user.email)
+        current_account = Account.find_by_email(email)
         customer_id     = current_account.customer_id
         current_plan    = current_account.stripe_plan_id
 
