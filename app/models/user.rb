@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #:confirmable tells the users that need to confirm his email before login
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :async
+         :recoverable, :rememberable, :trackable, :validatable
+         # , :confirmable, :async
   
   validate :email_is_unique, on: :create
   validate :subdomain_is_unique, on: :create
@@ -11,10 +12,10 @@ class User < ActiveRecord::Base
   after_validation :create_tenant
   after_create :create_account
   
-  #Disable user confirmation via email after sing up       
-  #def confirmation_required?
-    #false
-  #end
+  # Disable user confirmation via email after sing up       
+  def confirmation_required?
+    false
+  end
   
   private
   
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
       errors.add(:subdomain, " is already used by another account")
     end
     
-    if Apartment::Elevators::Subdomain.excluded_subdomains_include?(subdomain)
+    if Apartment::Elevators::Subdomain.excluded_subdomains.include?(subdomain)
       errors.add(:subdomain, " is not valid")
     end
   end
@@ -48,7 +49,9 @@ class User < ActiveRecord::Base
   
   def create_tenant
     return false unless self.errors.empty?
-    Apartment::Tenant.create(subdomain)
+    if self.new_record?
+      Apartment::Tenant.create(subdomain)
+    end
     Apartment::Tenant.switch!(subdomain)
   end  
 end

@@ -64,6 +64,7 @@ gem 'simple_form'
 gem 'stripe'
 
 gem 'apartment'
+gem 'apartment-sidekiq'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
