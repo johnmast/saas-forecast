@@ -63,6 +63,8 @@ gem 'simple_form'
 
 gem 'stripe'
 
+gem 'apartment'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
