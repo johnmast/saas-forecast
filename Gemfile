@@ -29,6 +29,8 @@ gem 'devise'
 #Print ruby objects with color and indentation
 gem 'awesome_print'
 
+gem 'stripe_event'
+
 #pg gem
 gem 'pg', '~> 0.18.2'
 #gem 'mysql2'
@@ -76,5 +78,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'ultrahook'
 end
 

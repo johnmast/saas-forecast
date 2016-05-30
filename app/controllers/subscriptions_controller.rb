@@ -37,7 +37,7 @@ class SubscriptionsController < ApplicationController
         customer.source = token
         customer.save
 
-        redirect_to "/subscriptions", :notice => "Card updated successfully"
+        redirect_to "/subscriptions", :notice => "Card updated successfully!"
 
     rescue => e
         redirect_to :action => "update_card", :flash => { :notice => e.message }
@@ -84,7 +84,7 @@ class SubscriptionsController < ApplicationController
 
         
 
-        redirect_to :root, :notice => "Successfully subscribed to a plan" #Plan-name
+        redirect_to :root, :notice => "Successfully subscribed to #{plan}!"
 
      rescue => e 
         redirect_to :back, :flash => {:error => e.message }
@@ -99,7 +99,7 @@ class SubscriptionsController < ApplicationController
         current_plan    = current_account.stripe_plan_id
 
         if current_plan.blank?
-            raise "No plan found to unsubscribe/cancel"
+            raise "No plan found to unsubscribe/cancel!"
         end
 
         #Fetch customer from Stripe
@@ -112,7 +112,7 @@ class SubscriptionsController < ApplicationController
         current_subscribed_plan = subscriptions.data.find { |o| o.plan.id == current_plan }
 
         if current_subscribed_plan.blank?
-            raise "Subscription not found!!"
+            raise "Subscription not found!"
         end
 
         #Delete it
@@ -121,7 +121,8 @@ class SubscriptionsController < ApplicationController
         #Update account model
         save_account_details(current_account, "", customer_id, Time.at(0).to_datetime)
 
-        @message = "Subscription cancelled successfully"
+        @message = "Subscription cancelled successfully!"
+        redirect_to "/subscriptions", :flash => {:success => @message}
 
     rescue => e
         redirect_to "/subscriptions", :flash => {:error => e.message}

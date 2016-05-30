@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 p1 = Stripe::Plan.retrieve("free-plan")
 p2 = Stripe::Plan.retrieve("basic-plan")
 p3 = Stripe::Plan.retrieve("premium-plan")

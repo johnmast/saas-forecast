@@ -47,14 +47,14 @@
 			  <div class="col-md-6 col-md-offset-3" id="topRow">
 			    
 			    <!-- <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p> -->
-          
-          <% flash.each do |type, message| %>
-            <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <%= message %>
-            </div>
-          <% end %>
+		          <p class="alert"><%= alert %></p> -->
+		          
+		          <% flash.each do |type, message| %>
+		            <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="alert">
+		                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            <%= message %>
+		            </div>
+		          <% end %>
 				  
 				  <h1 class="marginTop">Prepare for Your Next Vacation, See the weather!</h1>
 				  

@@ -1,16 +1,40 @@
+<p>
+  <!-- <p class="notice"><%= notice %></p>
+		          <p class="alert"><%= alert %></p> -->
+		          
+		          <% flash.each do |type, message| %>
+		            <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="alert">
+		                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            <%= message %>
+		            </div>
+		          <% end %>
+				  
+</p>
+<p>
 <% if @account.stripe_plan_id %>
   <% if @account.active_until > Time.now %>
-    Your subscription is active until <%= @account.active_until %>
+    Your subscription is active until <%= @account.active_until %>!
   <% else %>
-    Your subscription expired on <%= @account.active_until %>
+    Your subscription expired on <%= @account.active_until %>!
   <% end %>
   
 <% else %>
   You do not have a subscription plan.
 <% end %>
-
+</p>
+<p>
+  <%= link_to 'Update Card', subscriptions_update_card_path, {class: "btn btn-warning"} %>
+</p>
+<p>
+  <%= link_to 'New Subscription', new_subscription_path, {class: "btn btn-success"} %>
+</p>
 <p>
   <%= link_to edit_subscription_path(@account.id) do %>
-    <button class="btn btn-primary">Change subscription</button>
+    <button class="btn btn-primary">Change Subscription</button>
+  <% end %>
+</p>
+<p>
+  <%= link_to subscriptions_cancel_subscription_path do %>
+    <button class="btn btn-danger">Cancel Subscription</button>
   <% end %>
 </p>

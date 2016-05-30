@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   #Devise routes with custom registrations controller
   #devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
   resources :weather_grid
+  
+  get "/subscriptions/cancel_subscription" => "subscriptions#cancel_subscription"
+  get "/subscriptions/update_card" => "subscriptions#update_card"
+  post "/subscriptions/update_card_details" => "subscriptions#update_card_details"
   resources :subscriptions
   
   root to: "home#index"
+  
+  mount StripeEvent::Engine, at: '/stripe-event'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
