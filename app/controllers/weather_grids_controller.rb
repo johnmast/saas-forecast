@@ -1,5 +1,6 @@
 class WeatherGridsController < ApplicationController
   require 'forecast_io'
+  require 'plan_manager'
   include PlanManager
   
   before_action :set_weather_grid, only: [:show, :edit, :update, :destroy]
