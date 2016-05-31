@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
     
     before_action :authenticate_user!
-    # before_action :authorize_user
+    before_action :authorize_user
 
     def new
         @plans = Plan.all
@@ -41,8 +41,6 @@ class SubscriptionsController < ApplicationController
 
     rescue => e
         redirect_to :action => "update_card", :flash => { :notice => e.message }
-
-
     end
 
     def create
@@ -157,14 +155,10 @@ class SubscriptionsController < ApplicationController
         end
 
         return subscription
-
-
     end
 
-
-    #Authorize user or raise exception
+    # Authorize user or raise exception
     def authorize_user
         authorize! :manage, :subscriptions
-
     end
 end
