@@ -1,24 +1,10 @@
+## Overview
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+**SaaS Forecast** is a multi-tenancy SaaS application that provides weather forecast in order to organize your next vacation,
+based on the plan you purchase. The project was originally created for ICSD's Cloud course by Christos Sotirelis, Giannis Alexiou and Panagiotis Kontopos.
 
-
-Welcome to your Rails project on Cloud9 IDE!
-
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://saas-forecast-johnmast.c9users.io/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+**Features:**
+- User system & roles (user / admin).
+- Subdomain for each registered user.
+- Subscription plans (free, basic and premium).
+- Forecast.io API for weather data.
