@@ -16,7 +16,7 @@
   <tbody>
     <% @weather_locations.each do |weather_location| %>
       <tr>
-        <td><%= weather_location.weather_grid %></td>
+        <td><%= weather_location.weather_grid.name %></td>
         <td><%= weather_location.latitude %></td>
         <td><%= weather_location.longitude %></td>
         <td><%= weather_location.city %></td>
