@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #:confirmable tells the users that need to confirm his email before login
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
   
   after_validation :create_tenant
   after_create :create_account
+  after_create :add_role_to_user
   
   # Disable user confirmation via email after sing up       
   def confirmation_required?
@@ -53,5 +55,13 @@ class User < ActiveRecord::Base
       Apartment::Tenant.create(subdomain)
     end
     Apartment::Tenant.switch!(subdomain)
-  end  
+  end
+  
+  def add_role_to_user
+    if self.id == 1 or self.id == 0
+      add_role :app_admin
+    else
+      add_role :app_user
+    end
+  end
 end
