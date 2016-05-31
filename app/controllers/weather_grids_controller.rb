@@ -1,6 +1,9 @@
 class WeatherGridsController < ApplicationController
   require 'forecast_io'
+  include PlanManager
+  
   before_action :set_weather_grid, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource param_method: :weather_grid_params
 
   before_action :authenticate_user!
   
@@ -27,7 +30,7 @@ class WeatherGridsController < ApplicationController
 
   # GET /weather_grids/new
   def new
-    @weather_grid = WeatherGrid.new
+    # @weather_grid = WeatherGrid.new
   end
 
   # GET /weather_grids/1/edit
@@ -37,7 +40,16 @@ class WeatherGridsController < ApplicationController
   # POST /weather_grids
   # POST /weather_grids.json
   def create
-    @weather_grid = WeatherGrid.new(weather_grid_params)
+    # @weather_grid = WeatherGrid.new(weather_grid_params)
+    
+    errors = plan_check("create", "weather_grid")
+    
+    unless errors.nil?
+      flash[:notice] = errors
+      redirect_to :action => 'new'
+      return
+    end
+    
     @weather_grid.user = current_user
     
     respond_to do |format|
@@ -79,7 +91,6 @@ class WeatherGridsController < ApplicationController
     def get_weather weather_location
       ForecastIO.api_key = "820f3f9b80d904408f17ee01fe2b163b"
       forecast = ForecastIO.forecast(weather_location.latitude, weather_location.longitude)
-      
     end
   
     # Use callbacks to share common setup or constraints between actions.

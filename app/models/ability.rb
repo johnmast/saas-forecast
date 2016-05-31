@@ -38,5 +38,15 @@ class Ability
     
     can :read, WeatherGrid if user.has_role? :app_user
     can :read, WeatherLocation if user.has_role? :app_user
+    
+    can :create, WeatherGrid if user.has_role? :app_user
+    
+    can :delete, WeatherGrid do |wg|
+      wg.try(:user) == user
+    end
+    
+    can :update, WeatherGrid do |wg|
+      wg.try(:user) == user
+    end
   end
 end
