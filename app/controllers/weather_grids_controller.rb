@@ -12,6 +12,7 @@ class WeatherGridsController < ApplicationController
   # GET /weather_grids/1
   # GET /weather_grids/1.json
   def show
+    @weather_locations = WeatherLocation.where(:weather_grid => @weather_grid)
   end
 
   # GET /weather_grids/new
