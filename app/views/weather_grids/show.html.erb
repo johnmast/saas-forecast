@@ -28,6 +28,11 @@
         City: <%= weather_info['weather'].city %>
         Summary: <%= weather_info['weather'].currently.summary %>
         Timezone: <%= weather_info['weather'].timezone %>
+        Icon: <% css = forecast_to_css_mapping(weather_info['weather'].currently.icon) %>
+        
+        <div class="<%= css %>">
+          
+        </div>
       </div>
     <% end %>
   </div>

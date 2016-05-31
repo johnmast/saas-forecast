@@ -33,5 +33,10 @@ class Ability
     
     can :manage, :subscriptions if user.has_role? :app_admin
     
+    can :manage, WeatherGrid if user.has_role? :app_admin
+    can :manage, WeatherLocation if user.has_role? :app_admin
+    
+    can :read, WeatherGrid if user.has_role? :app_user
+    can :read, WeatherLocation if user.has_role? :app_user
   end
 end
