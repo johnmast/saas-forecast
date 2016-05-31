@@ -18,12 +18,16 @@
     <div class="panel-heading">
       <h3 class="panel-title"><%= @weather_grid.name %></h3>
     </div>
-    <% weather_locations.each do |weather_location| %>
+    <% @weather_info.each do |weather_info| %>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <%= weather_location.city %>
-          [<%= weather_location.latitude %>, <%= weather_location.longitude %>]
+          <%= weather_info['location'].city %>
+          [<%= weather_info['location'].latitude %>, 
+          <%= weather_info['location'].longitude %>]
         </div>
+        City: <%= weather_info['weather'].city %>
+        Summary: <%= weather_info['weather'].currently.summary %>
+        Timezone: <%= weather_info['weather'].timezone %>
       </div>
     <% end %>
   </div>

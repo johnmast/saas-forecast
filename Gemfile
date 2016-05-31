@@ -68,6 +68,8 @@ gem 'apartment-sidekiq'
 gem 'rolify'
 gem 'cancancan'
 
+gem 'forecast_io'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
