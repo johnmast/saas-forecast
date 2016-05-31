@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Weather Grids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weather_grids.each do |weather_grid| %>
+      <tr>
+        <td><%= weather_grid.name %></td>
+        <td><%= weather_grid.user %></td>
+        <td><%= link_to 'Show', weather_grid %></td>
+        <td><%= link_to 'Edit', edit_weather_grid_path(weather_grid) %></td>
+        <td><%= link_to 'Destroy', weather_grid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weather grid', new_weather_grid_path %>

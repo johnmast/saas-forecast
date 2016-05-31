@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Weather Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weather grid</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weather_locations.each do |weather_location| %>
+      <tr>
+        <td><%= weather_location.weather_grid %></td>
+        <td><%= weather_location.latitude %></td>
+        <td><%= weather_location.longitude %></td>
+        <td><%= weather_location.city %></td>
+        <td><%= link_to 'Show', weather_location %></td>
+        <td><%= link_to 'Edit', edit_weather_location_path(weather_location) %></td>
+        <td><%= link_to 'Destroy', weather_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weather location', new_weather_location_path %>

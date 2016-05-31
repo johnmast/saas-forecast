@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weather_grid_id: 
+  latitude: 9.99
+  longitude: 9.99
+  city: MyString
+
+two:
+  weather_grid_id: 
+  latitude: 9.99
+  longitude: 9.99
+  city: MyString

@@ -1,0 +1,16 @@
+<%= simple_form_for(@weather_location) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :weather_grid %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :city %>
+  </div>
+
+  <button type="button" class="btn btn-primary" onClick="getLatNLong()">Get Coordinates</button>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

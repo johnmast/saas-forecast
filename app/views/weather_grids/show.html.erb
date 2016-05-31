@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @weather_grid.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @weather_grid.user %>
+</p>
+
+<%= link_to 'Edit', edit_weather_grid_path(@weather_grid) %> |
+<%= link_to 'Back', weather_grids_path %>
