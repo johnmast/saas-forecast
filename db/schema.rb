@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531070043) do
+ActiveRecord::Schema.define(version: 20160531072325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,4 +77,26 @@ ActiveRecord::Schema.define(version: 20160531070043) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  create_table "weather_grids", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "weather_grids", ["user_id"], name: "index_weather_grids_on_user_id", using: :btree
+
+  create_table "weather_locations", force: :cascade do |t|
+    t.integer  "weather_grid_id"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "city"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "weather_locations", ["weather_grid_id"], name: "index_weather_locations_on_weather_grid_id", using: :btree
+
+  add_foreign_key "weather_grids", "users"
+  add_foreign_key "weather_locations", "weather_grids"
 end
