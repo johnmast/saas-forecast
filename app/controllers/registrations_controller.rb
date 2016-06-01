@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
   def new
+    ap request.subdomain
     if request.subdomain.blank? || request.subdomain == "www"
       super
     else
