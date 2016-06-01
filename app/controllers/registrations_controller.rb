@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
     if request.subdomain.blank? || request.subdomain == "www"
       super
     else
-      flash[:error] = "Access restricted!"
+      flash[:error] = "Access restricted! Request subdomain: #{request.subdomain}"
       redirect_to :root
     end
   end
