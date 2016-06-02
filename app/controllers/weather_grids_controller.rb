@@ -4,7 +4,7 @@ class WeatherGridsController < ApplicationController
   include PlanManager
 
   before_action :set_weather_grid, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource param_method: :weather_grid_params
+  # load_and_authorize_resource param_method: :weather_grid_params
 
   #Authentication
   before_action :authenticate_user!
