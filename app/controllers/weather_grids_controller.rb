@@ -35,7 +35,11 @@ class WeatherGridsController < ApplicationController
 
   # GET /weather_grids/new
   def new
-    @weather_grid = WeatherGrid.new
+    begin
+      @weather_grid = WeatherGrid.new
+    rescue Exception => e
+      ap e.message
+    end
   end
 
   # GET /weather_grids/1/edit
