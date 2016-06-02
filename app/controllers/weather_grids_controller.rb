@@ -35,7 +35,7 @@ class WeatherGridsController < ApplicationController
 
   # GET /weather_grids/new
   def new
-    #@weather_grid = WeatherGrid.new
+    @weather_grid = WeatherGrid.new
   end
 
   # GET /weather_grids/1/edit
