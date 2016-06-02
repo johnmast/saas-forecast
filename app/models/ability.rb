@@ -33,13 +33,14 @@ class Ability
     
     can :manage, :subscriptions if user.has_role? :app_admin
     
-    # can :manage, WeatherGrid if user.has_role? :app_admin
+    can :manage, WeatherGrid if user.has_role? :app_admin
     can :manage, WeatherLocation if user.has_role? :app_admin
     
-    # can :read, WeatherGrid if user.has_role? :app_user
+    can :read, WeatherGrid if user.has_role? :app_user
     can :read, WeatherLocation if user.has_role? :app_user
     
-    # can :create, WeatherGrid if user.has_role? :app_user
+    can :create, WeatherGrid if user.has_role? :app_user
+    can :create, WeatherGrid if user.has_role? :app_admin
     
     can :delete, WeatherGrid do |wg|
       wg.try(:user) == user
