@@ -28,26 +28,39 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    
-    user ||= User.new
-    
+
+    user ||= User.new # guest user (not logged in)
+
     can :manage, :subscriptions if user.has_role? :app_admin
-    
+
+    #app_admin can perform all operations
     can :manage, WeatherGrid if user.has_role? :app_admin
     can :manage, WeatherLocation if user.has_role? :app_admin
-    
+
+
+    #app_user can only read
     can :read, WeatherGrid if user.has_role? :app_user
     can :read, WeatherLocation if user.has_role? :app_user
-    
+
+    #Adding ability to create weather grid
     can :create, WeatherGrid if user.has_role? :app_user
-    can :create, WeatherGrid if user.has_role? :app_admin
-    
-    can :delete, WeatherGrid do |wg|
-      wg.try(:user) == user
+
+    #Only owners can edit weather grid
+    can :update, WeatherGrid do |weather_grid|
+        weather_grid.try(:user) == user
     end
-    
-    can :update, WeatherGrid do |wg|
-      wg.try(:user) == user
+
+    can :delete, WeatherGrid do |weather_grid|
+        weather_grid.try(:user) == user
     end
+
+
+
+    #Weather Locations
+    
+
+
+
+
   end
 end
