@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
   
   def add_role_to_user
-    if self.id == 1 or self.id == 0
+    if email == "icsd12182@aegean.gr"
       add_role :app_admin
     else
       add_role :app_user
